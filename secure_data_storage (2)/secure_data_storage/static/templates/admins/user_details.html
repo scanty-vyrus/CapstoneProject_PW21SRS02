@@ -1,0 +1,82 @@
+{% extends 'admins/design1.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+<style>
+    .userdetails{
+     position: absolute;
+    margin-top:-20px;
+    left:90px;
+    height:500px;
+    padding:5px;
+  left: -50px;
+    width: 1336px;
+    overflow:scroll;
+
+    background-color:black;
+    }
+    .userdetails table{
+    width:70em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:orangered;
+padding:5px;
+}
+.userdetails table tr td{
+background:whitesmoke;
+padding:5px;
+}
+.userdetails table tr:hover td{
+background:;
+}
+.sideimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:50px;
+ margin-left:830px;
+ background: url("{% static 'images13.png' %}");
+ background-size: 100%100%;
+float:left;
+}
+</style>
+<div class="userdetails">
+<table>
+    <tr>
+        <th>DATA</th>
+        <th >ENTITY</th>
+        <th >YEAR</th>
+        <th >RECORDS</th>
+        <th >ORGANIZATIONTYPE</th>
+        <th >ADDDATA</th>
+        <th >METHOD</th>
+        <th >ADDDATA</th>
+        <th >ATTACK RESULTS</th>
+        <th >TIME</th>
+    </tr>
+    {% for i in object %}
+    <tr>
+
+    <td >{{i.uregid.name}}</td>
+    <td >{{i.entity}}</td>
+    <td >{{i.year}}</td>
+    <td >{{i.records}}</td>
+    <td >{{i.organizationtype}}</td>
+    <td >{{i.adddata}}</td>
+    <td >{{i.method}}</td>
+    <td >{{i.attackresult}}</td>
+    <td >{{i.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+    {{object}}
+</div>
+
+<div class=""></div>
+{% endblock %}

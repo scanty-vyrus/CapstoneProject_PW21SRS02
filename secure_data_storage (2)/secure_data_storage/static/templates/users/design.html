@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+    background: url("{% static 'bg.jpg' %}");
+ background-size: 100% 100%;
+    }
+        .menu table{
+          width:100%;
+          text-align:center;
+              font-family: Aldrich;
+
+          }
+          .menu table td:hover{
+          background:whitesmoke;
+
+          }
+          .menu table td{
+          background:orangered;
+
+         }
+          .menu table,.menu table th,.menu table td {
+    border: ;
+    border-collapse: collapse;
+
+}
+.menu table th,.menu table  td {
+    padding: 15px;
+
+    }
+
+
+          .topic h1{
+          color:black;
+          padding:2px;
+          text-align:center;
+          border-style:none;
+          height:100px;
+          width:1330px;
+          float:left;
+
+
+          }
+          .mainholder{
+
+          position:relative;
+          top:50px;
+          left:50px;
+          z-index:999;
+          float:left;
+          }
+
+
+    </style>
+</head>
+<body>
+<div class="background-image">
+    <div class="topic"><h1 style=" font-family:File;   color: orangered;margin-top: 10px;margin-left: 30px;border-style: none;height: 40px;background-color: black;border-radius: 7px;">
+         Machine Learning and Deep Learning Methods for Cybersecurity</h1></div>
+<div class="menu">
+        <table>
+            <tr>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'user_page' %}">ANALYSIS</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'user_adddata' %}">ADD DATA</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'attack' %}">ATTACK</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'nonattack' %}"> NON ATTACKS</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'cyber_analysis' %}"> CYBER ANALYSIS</a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'chart_page' 'spline'   %}"> GRAPHICAL ANALYSIS </a></td>
+                <td><a  style="color:black;text-decoration: none;" href="{% url 'user_login' %}">LOGOUT</a></td>
+
+
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<div class="marqee">
+
+</div>
+<div class="mainholder">
+{% block userblock %}
+{% endblock %}
+</div>
+
+</body>
+</html>

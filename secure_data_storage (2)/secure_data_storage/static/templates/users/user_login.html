@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+        height: 100%;
+        margin: 0;
+        }
+        body{
+        background: url("{% static 'bg.jpg' %}");
+        height: %;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+            border: 12px solid #dbe2e8;
+        }
+        input {
+        padding: 10px 10px;
+        border-radius:5px;
+        margin:10px;
+        }
+        .table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+    margin-top: 130px;
+    margin-left: 435px;
+    font-family: cooper;
+    font-size: unset;
+    color: black;
+    border: 12px solid ;
+    border-radius: 10px;
+        border-radius: 10px;
+    background-color: teal;
+    }
+        .register{
+        position:absolute;
+        top:50%;
+        left:73%;
+        transform: translate(-50%, -50%);
+        background-color:teal;
+        font-family: cooper;
+        color:white;
+        font-size:16px;
+        padding: 12px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 191px;
+        margin-left: -409px;
+        }
+
+        .register:hover{
+        background-color: black;
+        background: url("{% static 'hotel.jpg' %}");
+
+        }
+
+        h1{
+        font-family:cooper;
+
+    text-align: center;
+        color: orangered;
+    font-size: 37px;
+    background-color: black;
+    border-radius: 10px;
+        }
+        .log{
+        background: url("{% static 'login.png' %} ");
+        background-size:cover;
+        width:100px;
+        height:50px;
+        }
+        tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+message{
+font-family:Aldrich;
+font-color:green;
+font-size:30px;
+}
+
+    </style>
+</head>
+<body>
+<h1>Machine Learning and Deep Learning Methods for Cybersecurity</h1>
+<form method="POST">
+    {% csrf_token %}
+    <table class="table">
+        <tr>
+            <td>USERNAME:</td>
+            <td><input type="text" name="name" value="" class=""></td>
+        </tr>
+        <tr>
+            <td>PASSWORD:</td>
+            <td><input type="password" name="password" class="" ></td>
+        </tr>
+        <tr>
+            <td><input type="submit" class="log"   name="login" value="" >
+        </tr>
+        <tr>
+            <td><p>Don't have an account?</p></td>
+            <td><a href="user_register"><img src="static/signup.png" width="100" hight="70"></a></td>
+        </tr>
+    </table>
+     <center class="message">
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+    </center>
+</form>
+</body>
+</html>

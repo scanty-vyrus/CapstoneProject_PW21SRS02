@@ -1,0 +1,77 @@
+{% extends 'users/design.html' %}
+{% block userblock %}
+{% load staticfiles %}
+
+<style>
+    .userdetails{
+     position: absolute;
+    margin-top:50px;
+    left:90px;
+    padding:5px;
+    height:480px;
+    width:1030px;
+    overflow:;
+    float:left;
+    }
+    .userdetails table{
+    width:40em;
+    text-align:center;
+        background-color: BLACK;
+    font-family: Aldrich;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:orangered;
+padding:5px;
+}
+.userdetails table tr td{
+background:whitesmoke;
+padding:5px;
+}
+.userdetails table tr:hover td{
+background:;
+}
+.sideimage{
+border-style:solid;
+ border-width:1px;
+ height:380px;
+ width:400px;
+ margin-top:35px;
+ margin-left:830px;
+ background: url("{% static 'cyber.gif' %}");
+ background-size: 100%100%;
+float:left;
+}
+
+</style>
+<div class="userdetails">
+<table>
+    <tr>
+        <th>CYBERATTACK NAME</th>
+        <th>NETWORK TRAFIC POSSITION</th>
+        <th>METHOD</th>
+
+    </tr>
+    {% for i in objects %}
+    <tr>
+    <td >{{i.attackresult}}</td>
+    <td >{{i.method}}</td>
+    <td >{{i.dcount}}</td>
+
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<div class="sideimage"></div>
+
+
+
+
+{% endblock %}

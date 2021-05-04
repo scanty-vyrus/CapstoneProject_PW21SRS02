@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+    <title>Title</title>
+      <style>
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}</style>
+</head>
+<body>
+<div class="topnav">
+    {% if admin == 0%}
+    <a class="active" href="/hidedata">hide data</a>
+    <a class="active" href="/showdata">show data</a>
+    {% endif %}
+  <a class="active" href="/logout">logout</a>
+</div>
+    <center>{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+
+  {% endif %}
+ {% endwith %}</center>
+
+    <div class="container">
+
+<table>
+  <tr>
+    <th>DAY</th>
+      <th>CaloriesBurned</th>
+      <th>steps</th>
+      <th>distance</th>
+      <th>heartbeat</th>
+      <th>TotalMinutesAsleep</th>
+      <th>TotalTimeinBed</th>
+  </tr>
+    {% for i in b %}
+    <tr><td>{{ i[2] }}</td><td>{{ i[3] }}</td><td>{{ i[4] }}</td><td>{{ i[5] }}</td><td>{{ i[6] }}</td><td>{{ i[7] }}</td>
+    <td>{{ i[8] }}</td></tr>
+    {% endfor %}
+</table>
+
+
+    </div></center>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</body>
+</html>

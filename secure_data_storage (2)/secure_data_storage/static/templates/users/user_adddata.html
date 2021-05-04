@@ -1,0 +1,103 @@
+{% extends 'users/design.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+    .userpage{
+
+    margin-left:90px;
+    padding:10px;
+    width:500px;
+    font-family:Aldrich;
+}
+.userpage table{
+    width:20em;
+    text-align:center;
+    border-collapse:collapse;
+    border-spacing:1px;
+    background:;
+}
+.userpage table tr th{
+    color:;
+}
+.userpage table tr th{
+    background:
+    padding:20px;
+}
+.userpage table tr td{
+    background:	#08b9aa;
+    padding:10px;
+}
+.userpage table tr:hover td{
+    background:;
+}
+.userpageimage{
+    border-style:solid;
+        width: 342px;
+    height: 325px;
+    margin-top: -351px;
+    margin-left: 460px;
+
+    border-radius: 10px;
+    background: url("{% static 'cyber.gif' %}");
+    background-size: 100%100%;
+}
+input{
+border-radius:7px;
+font-family: Aldrich;
+    text-align: center;
+
+}
+</style>
+<script>
+    alert("You have been successfully Login" );
+</script>
+
+<div class="userpage">
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>ENTITY:</td>
+            <td><input type="text" name="entity"></td>
+        </tr>
+        <tr>
+            <td>YEAR:</td>
+            <td><input type="number" name="year"></td>
+        </tr>
+        <tr>
+            <td>RECORDS:</td>
+            <td><input type="text" name="records"></td>
+        </tr>
+        <tr>
+            <td>ORGANIZATION TYPE:</td>
+            <td><input type="text" name="organizationtype"></td>
+        </tr>
+        <tr>
+            <td>METHODS:</td>
+            <td><input type="text" name="method"></td>
+        </tr>
+        <tr>
+            <td>ADD DATA</td>
+            <td><input type="text" name="name"></td>        </tr>
+        <tr>
+            <td>TIME:</td>
+            <td><input type="text" name="time"></td>
+        </tr>
+        <tr>
+           <td style="text-align:center;" colspan="2"><input type="submit" name="submit" value="SUBMIT" style="background:green;color:white"></td>
+        </tr>
+    </table>
+</form>
+    {{objects}}
+    {{obj}}
+    </div>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="userpageimage"></div>
+{% endblock %}
